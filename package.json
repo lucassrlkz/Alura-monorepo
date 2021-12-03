@@ -1,0 +1,14 @@
+{
+  "name": "Alura-monorepo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/lucasv0097/Alura-monorepo.git",
+  "author": "LKZ <lucas_vieira97@hotmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  }
+}
