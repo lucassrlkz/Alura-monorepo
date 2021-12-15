@@ -14,6 +14,7 @@
     "mysql": "^2.18.1"
   },
   "devDependencies": {
+    "axios": "^0.24.0",
     "nodemon": "^2.0.15"
   }
 }
