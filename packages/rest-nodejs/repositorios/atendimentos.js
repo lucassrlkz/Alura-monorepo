@@ -17,6 +17,10 @@ class Atendimento {
 	}
 
 	alterar([valores, id]) {
+		if (valores.data) {
+			valores.data = moment(valores.data, 'DD/MM/YYYY').format('YYYY-MM-DD HH:MM:SS')
+		}
+
 		const sql = 'UPDATE Atendimentos SET ? WHERE id=?'
 		return query(sql, [valores, id])
 	}

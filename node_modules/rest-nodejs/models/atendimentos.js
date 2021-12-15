@@ -63,9 +63,6 @@ class Atendimento {
 	}
 
 	alterar([valores, id]) {
-		if (valores.data) {
-			valores.data = moment(valores.data, 'DD/MM/YYYY').format('YYYY-MM-DD HH:MM:SS')
-		}
 		return repositorio.alterar([valores, id])
 	}
 
