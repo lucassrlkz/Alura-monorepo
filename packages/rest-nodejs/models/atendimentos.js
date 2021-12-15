@@ -1,5 +1,5 @@
-const { default: axios } = require('axios')
 const moment = require('moment')
+
 const conexao = require('../infraestrutura/database/conection')
 const repositorio = require('../repositorios/atendimentos')
 
@@ -62,7 +62,7 @@ class Atendimento {
 		return repositorio.buscaId(id)
 	}
 
-	alterar([valores, id]) {
+	alterar([id, valores]) {
 		return repositorio.alterar([valores, id])
 	}
 

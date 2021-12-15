@@ -11,8 +11,8 @@ module.exports = (app) => {
 		const id = parseInt(req.params.id)
 
 		Atendimento.buscaId(id)
-			.then((resultados) => res.json(resultados))
-			.then((erros) => res.json(400).json(erros))
+			.then((atendimento) => res.json(atendimento))
+			.catch((erros) => res.status(400).json(erros))
 	})
 
 	app.post('/atendimentos', (req, res) => {
@@ -27,8 +27,8 @@ module.exports = (app) => {
 		const id = parseInt(req.params.id)
 		const valores = req.body
 
-		Atendimento.alterar([valores, id])
-			.then((atendimentoAlterado) => res.json(atendimentoAlterado))
+		Atendimento.alterar([id, valores])
+			.then((alterados) => res.json(alterados))
 			.catch((erros) => res.status(400).json(erros))
 	})
 
@@ -36,7 +36,7 @@ module.exports = (app) => {
 		const id = parseInt(req.params.id)
 
 		Atendimento.deletar(id)
-			.then((atendimentoDeletado) => res.json(atendimentoDeletado))
+			.then((deletado) => res.json(deletado))
 			.catch((erros) => res.status(400).json(erros))
 	})
 }
