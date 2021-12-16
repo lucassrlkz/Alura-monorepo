@@ -44,7 +44,7 @@ Neste projeto será construído uma aplicação com api em **REST** usando **Nod
 4. Entrar na pasta do projeto e digitar o comando **yarn** para instalar as dependências do projeto:
 
 ```
-    cd Alura-monorepo/packages/rest-nodejs
+    cd Alura-monorepo/package/rest-nodejs
     yarn
 ```
 
