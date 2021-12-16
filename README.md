@@ -9,7 +9,6 @@ Neste projeto será construído uma aplicação com api em **REST** usando **Nod
 
 [curso-projeto](https://cursos.alura.com.br/formacao-node-js-12)
 
-
 ### Pré-requisitos
 
 [mysqli](https://dev.mysql.com/downloads/)
