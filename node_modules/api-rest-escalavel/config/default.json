@@ -1,8 +1,8 @@
 {
     "mysql":{
-        "databse":"petshop",
+        "database":"petshop",
         "user":"root",
-        "password":"admin",
+        "password":"root",
         "host":"localhost"
     },
 
