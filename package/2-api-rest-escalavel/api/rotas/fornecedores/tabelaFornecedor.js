@@ -1,9 +1,9 @@
 const Modelo = require('./ModeloTabelaFornecedor')
-const NaoEncontrado = require('../../erros/NaoEncontrado');
+const NaoEncontrado = require('../../erros/NaoEncontrado')
 
 module.exports = {
 	listar() {
-		return Modelo.findAll()
+		return Modelo.findAll({ raw: true })
 	},
 
 	inserir(fornecedor) {
@@ -23,7 +23,7 @@ module.exports = {
 
 	async atualizar(id, atualizar) {
 		return Modelo.update(atualizar, {
-			where: { id: id }
+			where: { id: id },
 		})
 	},
 

@@ -41,12 +41,14 @@ class Fornecedor {
 		await TabelaFornecedor.pegarPorId(this.id)
 		const campos = ['empresa', 'email', 'categoria']
 		const atualizar = {}
+		
 		campos.forEach((campo) => {
 			const valor = this[campo]
 
-			if (typeof valor === 'string' && valor.length > 0) {
-				atualizar[campo] = valor
-			}
+			(typeof valor === 'string' && valor.length > 0)
+			? atualizar[campo] = valor 
+			: ''
+			
 		})
 
 		if (Object.keys(atualizar).length === 0) {
