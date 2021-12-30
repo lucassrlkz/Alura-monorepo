@@ -14,9 +14,7 @@ module.exports = {
 		const encontrado = await Modelo.findOne({
 			where: { id: id },
 		})
-		if (!encontrado) {
-			throw new NaoEncontrado()
-		}
+		if (!encontrado) throw new NaoEncontrado()
 
 		return encontrado
 	},

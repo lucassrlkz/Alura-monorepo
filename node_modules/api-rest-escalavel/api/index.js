@@ -7,6 +7,7 @@ const CampoInvalido = require('./erros/CampoInvalido')
 const DadosNaoFornecidos = require('./erros/DadosNaoFornecidos')
 const ValorNaoSuportado = require('./erros/ValorNaoSuportado')
 const formatosAceitos = require('./Serializador').formatosAceitos
+const SerializadorError = require('./Serializador').SerializadorError
 
 const app = express()
 app.use(bodyParser.json())
@@ -14,13 +15,10 @@ app.use(bodyParser.json())
 app.use((req, res, next) => {
 	let formatoRequisitado = req.header('Accept')
 
-	if (formatoRequisitado === '*/*') {
-		formatoRequisitado = 'application/json'
-	}
+	if (formatoRequisitado === '*/*') formatoRequisitado = 'application/json'
 
 	if (formatosAceitos.indexOf(formatoRequisitado) === -1) {
-		res.status(406)
-		res.end()
+		res.status(406).end()
 		return
 	}
 
@@ -42,9 +40,9 @@ app.use((error, req, res, next) => {
 		? (status = 406)
 		: status
 
-	res.status(status)
-	res.send(
-		JSON.stringify({
+	const serializador = new SerializadorError(res.getHeader('content-Type'))
+	res.status(status).send(
+		serializador.serializar({
 			mensagem: error.message,
 			id: error.idErro,
 		})

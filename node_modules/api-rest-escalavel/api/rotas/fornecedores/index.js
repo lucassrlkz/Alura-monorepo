@@ -6,7 +6,7 @@ const SerializadorFornecedor = require('../../Serializador').SerializadorFornece
 router.get('/', async (req, res) => {
 	const resultados = await TabelaFornecedor.listar()
 	const serializador = new SerializadorFornecedor(res.getHeader('Content-Type'))
-	
+
 	res.status(200).send(serializador.serializar(resultados))
 })
 
@@ -29,7 +29,12 @@ router.get('/:idFornecedor', async (req, res, next) => {
 		const fornecedor = new Fornecedor({ id: id })
 		await fornecedor.carregar()
 
-		const serializador = new SerializadorFornecedor(res.getHeader('Content-Type'))
+		const serializador = new SerializadorFornecedor(res.getHeader('Content-Type'), [
+			'email',
+			'dataCriacao',
+			'dataAtualizacao',
+			'versao',
+		])
 		res.status(200).send(serializador.serializar(fornecedor))
 	} catch (error) {
 		next(error)
@@ -57,7 +62,7 @@ router.delete('/:idFornecedor', async (req, res, next) => {
 		const fornecedor = new Fornecedor({ id: id })
 		await fornecedor.carregar()
 		await fornecedor.remover()
-		
+
 		res.status(204).end()
 	} catch (error) {
 		next(error)

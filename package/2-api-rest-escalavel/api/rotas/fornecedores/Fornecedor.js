@@ -41,19 +41,13 @@ class Fornecedor {
 		await TabelaFornecedor.pegarPorId(this.id)
 		const campos = ['empresa', 'email', 'categoria']
 		const atualizar = {}
-		
+
 		campos.forEach((campo) => {
 			const valor = this[campo]
-
-			(typeof valor === 'string' && valor.length > 0)
-			? atualizar[campo] = valor 
-			: ''
-			
+			if (typeof valor === 'string' && valor.length > 0) atualizar[campo] = valor
 		})
 
-		if (Object.keys(atualizar).length === 0) {
-			throw new DadosNaoFornecidos()
-		}
+		if (Object.keys(atualizar).length === 0) throw new DadosNaoFornecidos()
 
 		await TabelaFornecedor.atualizar(this.id, atualizar)
 	}
@@ -66,10 +60,7 @@ class Fornecedor {
 		const campos = ['empresa', 'email', 'categoria']
 		campos.forEach((campo) => {
 			const valor = this[campo]
-
-			if (typeof valor !== 'string' || valor.lenght === 0) {
-				throw new CampoInvalido(campo)
-			}
+			if (typeof valor !== 'string' || valor.lenght === 0) throw new CampoInvalido(campo)
 		})
 	}
 }
