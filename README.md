@@ -50,13 +50,14 @@ Neste projeto será construído uma aplicação com api em **REST** usando **Nod
 ```
     cd package/1-rest-nodejs/servicos/
     yarn
+
     node cliente.js
 ```
 
 ##### 2. Modificar o arquivo default.json dentro da pasta config e mudar o valor das variaveis do banco de dados local:
    
 ```
-    cd database/
+    cd config/
 
     host: 'seu valor',
 	port: 000,
@@ -68,6 +69,7 @@ Neste projeto será construído uma aplicação com api em **REST** usando **Nod
 ##### 3. Na pasta raiz deste projeto basta rodar o comando abaixo:
 
 ```
+    cd package/1-rest-nodejs
     yarn start
 ```
 
