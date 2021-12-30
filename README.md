@@ -53,13 +53,13 @@ Neste projeto será construído uma aplicação com api em **REST** usando **Nod
     node cliente.js
 ```
 
-##### 2. Modificar o arquivo connection.js dentro de database e mudar as variaveis do banco de dados local:
+##### 2. Modificar o arquivo default.json dentro da pasta config e mudar o valor das variaveis do banco de dados local:
    
 ```
     cd database/
 
-    host: 'localhost',
-	port: 3306,
+    host: 'seu valor',
+	port: 000,
 	user: 'root',
 	password: '',
 	database: 'agenda-petshop',
