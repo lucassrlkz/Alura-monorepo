@@ -10,5 +10,8 @@
     "packages": [
       "package/*"
     ]
+  },
+  "dependencies": {
+    "jsontoxml": "^1.0.1"
   }
 }

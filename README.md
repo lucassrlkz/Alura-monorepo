@@ -20,43 +20,40 @@ Neste projeto será construído uma aplicação com api em **REST** usando **Nod
 
 ---
 
-### Primeiros Passos
+## Primeiros Passos
 
-1. instalar o gerenciador de pacotes Yarn
+##### 1. instalar o gerenciador de pacotes Yarn:
    
 ```
    npm install --global yarn
 ```
 
-2. Clonar o repositorio
+##### 2. Clonar o repositorio:
 
 ```
    git clone https://github.com/lucassrlkz/Alura-monorepo
 ```
 
-3. Entrar na pasta do projeto e digitar o comando **yarn** para instalar as dependências do projeto:
+##### 3. Entrar na pasta do projeto e digitar o comando **yarn** para instalar as dependências do projeto:
 
 ```
     cd Alura-monorepo/
     yarn
 ```
 
-4. Entrar na pasta do projeto e digitar o comando **yarn** para instalar as dependências do projeto:
+---
+### Primeiro Projeto
+<br>
+
+##### 1. Entrar na pasta servicoes instalar dependências com 'yarn' e iniciar a api clientes do projeto:
 
 ```
-    cd Alura-monorepo/packages/rest-nodejs
-    yarn
-```
-
-1. Entrar na pasta servicoes instalar dependências com **yarn** e iniciar a api clientes do projeto:
-
-```
-    cd servicos/
+    cd package/1-rest-nodejs/servicos/
     yarn
     node cliente.js
 ```
 
-6. Modificar o arquivo connection.js dentro de database e mudar as variaveis do banco de dados local
+##### 2. Modificar o arquivo connection.js dentro de database e mudar as variaveis do banco de dados local:
    
 ```
     cd database/
@@ -68,10 +65,10 @@ Neste projeto será construído uma aplicação com api em **REST** usando **Nod
 	database: 'agenda-petshop',
 ```
 
-7. Rodar o projeto com
-   
+##### 3. Na pasta raiz deste projeto basta rodar o comando abaixo:
+
 ```
     yarn start
 ```
 
-8. 🔥 Acessar as urls e utilizar a aplicação 🔥
+##### 4. 🔥 Acessar as urls e utilizar a aplicação 🔥
