@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const TabelaFornecedor = require('./TabelaFornecedor')
 const Fornecedor = require('./Fornecedor')
+const roteadorProdutos = require('./produtos')
 const SerializadorFornecedor = require('../../Serializador').SerializadorFornecedor
 
 router.get('/', async (req, res) => {
@@ -69,7 +70,6 @@ router.delete('/:idFornecedor', async (req, res, next) => {
 	}
 })
 
-const roteadorProdutos = require('./produtos')
 router.use('/:idFornecedor/produtos', roteadorProdutos)
 
 module.exports = router

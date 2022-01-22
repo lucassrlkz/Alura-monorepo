@@ -2,7 +2,7 @@
     "mysql":{
         "database":"petshop",
         "user":"root",
-        "password":"root",
+        "password":"admin",
         "host":"localhost"
     },
 
