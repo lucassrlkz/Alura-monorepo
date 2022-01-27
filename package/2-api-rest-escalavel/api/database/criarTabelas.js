@@ -3,15 +3,12 @@ const modelos = [
 	require('../rotas/fornecedores/produtos/modeloTabelaProduto'),
 ]
 
-async function criarTabelas() {
+// * cria tabelas no banco de dados com base nos modelos das tabelas
+// TODO: esse método foi refatorado para um loop foreach
+
+function criarTabelas() {
 	modelos.forEach((modelo) => {
-		await modelo.sync()
+		modelo.sync()
 	})
 }
-// async function criarTabelas() {
-// 	for (let contador = 0; contador < modelos.length; contador++) {
-// 		const modelo = modelos[contador]
-// 		await modelo.sync()
-// 	}
-// }
 criarTabelas()
