@@ -53,21 +53,23 @@ Neste projeto será construído uma aplicação com api em **REST** usando **Nod
     node cliente.js
 ```
 
-##### 2. Modificar o arquivo connection.js dentro de database e mudar as variaveis do banco de dados local:
+##### 2. Criar o arquivo default.js dentro de config/ e mudar as variaveis do banco de dados local:
    
+```json
+  {
+   "mysql":{
+       "host": "host",
+	    "port": "port",
+        "username": "username",
+        "password": "password",
+        "database": "database"
+   }
+}
 ```
-    cd database/
-
-    host: 'localhost',
-	port: 3306,
-	user: 'root',
-	password: '',
-	database: 'agenda-petshop',
-```
-
-##### 3. Na pasta raiz deste projeto basta rodar o comando abaixo:
+##### 3. Na pasta raiz deste projeto basta rodar os comandos abaixo na ordem:
 
 ```
+    yarn service
     yarn start
 ```
 
