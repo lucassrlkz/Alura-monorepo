@@ -3,13 +3,13 @@ const Tabela = require('./tabelaProduto')
 const Produto = require('./Produto')
 
 router.get('/', async (req, res) => {
-	const produtos = await Tabela.listar(req.params.idFornecedor)
+	const produtos = await Tabela.listar(req.fornecedor.id)
 	res.send(produtos)
 })
 
 router.post('/', async (req, res, next) => {
 	try {
-        const idFornecedor = req.params.idFornecedor
+        const idFornecedor = req.fornecedor.id
         const body = req.body
 
         const dados = { ...body, fornecedor: idFornecedor }
@@ -25,7 +25,7 @@ router.post('/', async (req, res, next) => {
 
 router.delete('/:idProduto', async (req, res) => {
 	const dados = {
-        fornecedor: req.params.idFornecedor,
+        fornecedor: req.fornecedor.id,
         id: req.params.idProduto
     }
     const produto = new Produto(dados)
