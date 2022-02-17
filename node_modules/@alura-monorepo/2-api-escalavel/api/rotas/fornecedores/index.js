@@ -70,6 +70,18 @@ router.delete('/:idFornecedor', async (req, res, next) => {
 	}
 })
 
-router.use('/:idFornecedor/produtos', roteadorProdutos)
+const verificarFornecedor = async (req, res, next) => {
+	try {
+		const id = req.params.idFornecedor
+		const fornecedor = new Fornecedor({ id:id})
+		await fornecedor.carregar()
+		req.fornecedor = fornecedor
+		next()
+	} catch (error) {
+		next(error)
+	}
+}
+
+router.use('/:idFornecedor/produtos', verificarFornecedor, roteadorProdutos)
 
 module.exports = router

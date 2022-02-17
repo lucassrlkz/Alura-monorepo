@@ -1,7 +1,6 @@
 {
   "name": "alura-monorepo",
   "version": "1.0.0",
-  "main": "index.js",
   "repository": "https://github.com/lucasv0097/Alura-monorepo.git",
   "author": "LKZ <lucas_vieira97@hotmail.com>",
   "license": "MIT",
@@ -11,7 +10,13 @@
       "package/*"
     ]
   },
+  "scripts": {
+    "start1": "yarn workspace @alura-monorepo/1-rest-nodejs start",
+    "start2": "yarn workspace @alura-monorepo/2-api-escalavel start"
+  },
   "dependencies": {
+    "@alura-monorepo/1-rest-nodejs": "1.0.0",
+    "@alura-monorepo/2-api-escalavel": "1.0.0",
     "jsontoxml": "^1.0.1"
   }
 }

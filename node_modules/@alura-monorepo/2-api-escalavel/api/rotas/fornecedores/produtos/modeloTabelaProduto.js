@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize')
 const newSequelize = require('../../../database')
 
+
 const colunas = {
 	titulo: {
 		type: Sequelize.STRING,
