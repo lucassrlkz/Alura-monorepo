@@ -2,7 +2,16 @@ const CampoInvalido = require('../../../erros/CampoInvalido')
 const Tabela = require('./tabelaProduto')
 
 class Produto {
-	constructor({ id, titulo, preco, estoque, fornecedor, dataCriacao, dataAtualizacao, versao }) {
+	constructor({
+		id,
+		titulo,
+		preco,
+		estoque,
+		fornecedor,
+		dataCriacao,
+		dataAtualizacao,
+		versao,
+	}) {
 		this.id = id
 		this.titulo = titulo
 		this.preco = preco
@@ -14,7 +23,7 @@ class Produto {
 	}
 
 	async criar() {
-        this.validar()
+		this.validar()
 		const resultado = await Tabela.inserir({
 			titulo: this.titulo,
 			preco: this.preco,
@@ -22,24 +31,24 @@ class Produto {
 			fornecedor: this.fornecedor,
 		})
 
-        this.id = resultado.id
+		this.id = resultado.id
 		this.dataCriacao = resultado.dataCriacao
-        this.dataAtualizacao = resultado.dataAtualizacao
-        this.versao = resultado.versao
+		this.dataAtualizacao = resultado.dataAtualizacao
+		this.versao = resultado.versao
 	}
 
-    validar(){
-        if(typeof this.titulo !== 'string' || this.titulo.length ===0){
-            throw new CampoInvalido('titulo')
-        }
-        if(typeof this.preco !== 'number' || this.preco === 0){
-            throw new CampoInvalido('preco')
-        }
-    }
-    async deletar(){
-        return Tabela.remover(this.id, this.fornecedor)
-    }
-	async carregar(){
+	validar() {
+		if (typeof this.titulo !== 'string' || this.titulo.length === 0) {
+			throw new CampoInvalido('titulo')
+		}
+		if (typeof this.preco !== 'number' || this.preco === 0) {
+			throw new CampoInvalido('preco')
+		}
+	}
+	async deletar() {
+		return Tabela.remover(this.id, this.fornecedor)
+	}
+	async carregar() {
 		const produto = await Tabela.pegarPorId(this.id, this.fornecedor)
 		this.titulo = produto.titulo
 		this.preco = produto.preco
@@ -47,7 +56,33 @@ class Produto {
 		this.dataCriacao = produto.dataCriacao
 		this.dataAtualizacao = produto.dataAtualizacao
 		this.versao = produto.versao
-		
+	}
+
+	atualizar() {
+		const dadosParaAtualizar = {}
+		if (typeof this.titulo === 'string' && this.titulo.length > 0) {
+			dadosParaAtualizar.titulo = this.titulo
+		}
+		if (typeof this.preco === 'number' && this.preco > 0) {
+			dadosParaAtualizar.preco = this.preco
+		}
+		if (typeof this.estoque === 'number') {
+			dadosParaAtualizar.estoque = this.estoque
+		}
+
+		if (Object.keys(dadosParaAtualizar).length === 0) {
+			throw new Error('Não foram forneciddos dados para atualizar')
+		}
+		return Tabela.atualizar(
+			{
+				id: this.id,
+				fornecedor: this.fornecedor,
+			},
+			dadosParaAtualizar
+		)
+	}
+	diminuirEstoque() {
+		return Tabela.subtrair(this.id, this.fornecedor, 'estoque', this.estoque)
 	}
 }
 

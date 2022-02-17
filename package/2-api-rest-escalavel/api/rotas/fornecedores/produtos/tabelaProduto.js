@@ -1,4 +1,5 @@
 const Modelo = require('./modeloTabelaProduto')
+const Sequelize = require('../../../database')
 
 module.exports = {
 	listar(idFornecedor) {
@@ -6,7 +7,7 @@ module.exports = {
 			where: {
 				fornecedor: idFornecedor,
 			},
-			raw: true
+			raw: true,
 		})
 	},
 
@@ -29,9 +30,28 @@ module.exports = {
 				id: idProduto,
 				fornecedor: idFornecedor,
 			},
-			raw: true
+			raw: true,
 		})
-		if(!encontrado) throw new Error('produto não encontrado')
+		if (!encontrado) throw new Error('produto não encontrado')
 		return encontrado
+	},
+
+	atualizar(dadosdoProduto, dadosParaAtualizar) {
+		return Modelo.update(dadosParaAtualizar, {
+			where: dadosdoProduto,
+		})
+	},
+
+	subtrair(idProduto, idFornecedor, campo, quantidade) {
+		return Sequelize.transaction(async () => {
+			const produto = await Modelo.findOne({
+				where: {
+					id: idProduto,
+					fornecedor: idFornecedor,
+				},
+			})
+			produto[campo] = quantidade
+			return produto, await produto.save()
+		})
 	},
 }

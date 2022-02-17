@@ -60,4 +60,34 @@ router.get('/:idProduto', async (req, res, next) => {
 		next(error)
 	}
 })
+
+router.put('/:idProduto', async (req, res, next) => {
+	try {
+		const dados = {
+			...req.body,
+			id: req.params.idProduto,
+			fornecedor: req.fornecedor.id,
+		}
+		const produto = new Produto(dados)
+		await produto.atualizar()
+		res.status(204).end()
+	} catch (error) {
+		next(error)
+	}
+})
+
+router.post('/:idProduto/diminuir-estoque', async (req, res, next) => {
+	try {
+		const produto = new Produto({
+			id: req.params.idProduto,
+			fornecedor: req.fornecedor.id,
+		})
+		await produto.carregar()
+		produto.estoque = produto.estoque - req.body.quantidade
+		await produto.diminuirEstoque()
+		res.status(204).end()
+	} catch (error) {
+		next(error)
+	}
+})
 module.exports = router
