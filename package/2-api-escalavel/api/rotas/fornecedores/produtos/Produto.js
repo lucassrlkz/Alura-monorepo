@@ -1,6 +1,6 @@
 const CampoInvalido = require('../../../erros/CampoInvalido')
 const Tabela = require('./tabelaProduto')
-
+const DadosNaoFornecidos = require('../../../erros/DadosNaoFornecidos')
 class Produto {
 	constructor({
 		id,
@@ -71,7 +71,7 @@ class Produto {
 		}
 
 		if (Object.keys(dadosParaAtualizar).length === 0) {
-			throw new Error('Não foram forneciddos dados para atualizar')
+			throw new DadosNaoFornecidos()
 		}
 		return Tabela.atualizar(
 			{

@@ -1,5 +1,6 @@
 const Modelo = require('./modeloTabelaProduto')
 const Sequelize = require('../../../database')
+const NaoEncontrado = require('../../../erros/NaoEncontrado')
 
 module.exports = {
 	listar(idFornecedor) {
@@ -32,7 +33,7 @@ module.exports = {
 			},
 			raw: true,
 		})
-		if (!encontrado) throw new Error('produto não encontrado')
+		if (!encontrado) throw NaoEncontrado('Produto')
 		return encontrado
 	},
 
