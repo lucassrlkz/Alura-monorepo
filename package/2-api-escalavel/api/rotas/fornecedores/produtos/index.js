@@ -70,6 +70,23 @@ router.get('/:idProduto', async (req, res, next) => {
 	}
 })
 
+router.head('/:idProduto', async (req, res, next) => {
+	try {
+		const dados = {
+			id: req.params.idProduto,
+			fornecedor: req.fornecedor.id,
+		}
+		const produto = new Produto(dados)
+		await produto.carregar()
+
+		res.set('ETag', produto.versao)
+		res.set('Last-Modified', new Date(produto.dataAtualizacao).getTime())
+		res.status(200).end()
+	} catch (error) {
+		next(error)
+	}
+})
+
 router.put('/:idProduto', async (req, res, next) => {
 	try {
 		const dados = {
