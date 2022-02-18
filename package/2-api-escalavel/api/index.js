@@ -8,6 +8,7 @@ const DadosNaoFornecidos = require('./erros/DadosNaoFornecidos')
 const ValorNaoSuportado = require('./erros/ValorNaoSuportado')
 const formatosAceitos = require('./Serializador').formatosAceitos
 const SerializadorError = require('./Serializador').SerializadorError
+const Cors = require('cors')
 
 const app = express()
 app.use(bodyParser.json())
@@ -26,7 +27,7 @@ app.use((req, res, next) => {
 
 	next()
 })
-
+app.use(Cors())
 app.use('/api/fornecedores', router)
 
 app.use((error, req, res, next) => {
@@ -49,5 +50,7 @@ app.use((error, req, res, next) => {
 	)
 })
 
-app.listen(config.get('api.porta'), () => console.log('Api esta rodando perfeiramente'))
+app.listen(config.get('api.porta'), () =>
+	console.log('Api esta rodando perfeiramente')
+)
 app.get('/', (req, res) => res.send('tudo certo por aqui'))
