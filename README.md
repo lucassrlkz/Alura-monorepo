@@ -45,7 +45,7 @@ Neste projeto será construído uma aplicação com api em **REST** usando **Nod
 ### Primeiro Projeto
 <br>
 
-##### 1. Entrar na pasta servicoes instalar dependências com 'yarn' e iniciar a api clientes do projeto:
+##### 1. Entrar na pasta servicos instalar dependências com 'yarn' e iniciar a api clientes do projeto:
 
 ```
     cd package/1-rest-nodejs/servicos/
