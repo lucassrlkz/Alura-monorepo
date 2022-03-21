@@ -38,4 +38,4 @@
 
 **3.** [Node-jwt-autenticacao-tokens](/package/3-node-jwt/) 
 
-**4.** [Formacao-Typescript](https://cursos.alura.com.br/formacao-typescript)
+**4.** [Formacao-Typescript](/package/4-typescript/)
