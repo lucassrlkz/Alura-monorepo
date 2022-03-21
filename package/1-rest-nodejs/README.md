@@ -2,7 +2,7 @@
 
 Neste projeto foi construído uma aplicação API em *REST* usando *NodeJs*
 
-[curso-projeto](https://cursos.alura.com.br/formacao-node-js-12)
+[NodeJS-streaming-repositorio](https://cursos.alura.com.br/course/nodejs-streaming-dados)
 
 <br>
 
