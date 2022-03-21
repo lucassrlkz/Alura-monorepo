@@ -17,15 +17,11 @@
     "start4": "yarn workspace @alura-monorepo/alurabank start"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "config": "^3.3.6",
-=======
     "@alura-monorepo/1-rest-nodejs": "1.0.0",
     "@alura-monorepo/2-api-escalavel": "1.0.0",
     "@alura-monorepo/blog-do-codigo": "1.0.0",
     "@alura-monorepo/alurabank":"1.0.0",
     "cors": "^2.8.5",
->>>>>>> dev
     "jsontoxml": "^1.0.1"
   }
 }

@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-  "name": "1-rest-nodejs",
-=======
   "name": "@alura-monorepo/1-rest-nodejs",
->>>>>>> dev
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
