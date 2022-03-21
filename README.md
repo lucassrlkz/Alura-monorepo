@@ -30,37 +30,6 @@
 ```
 ---
 
-<<<<<<< HEAD
-##### 1. Entrar na pasta servicos instalar dependências com 'yarn' e iniciar a api clientes do projeto:
-
-```
-    cd package/1-rest-nodejs/servicos/
-    yarn
-
-    node cliente.js
-```
-
-##### 2. Modificar o arquivo default.json dentro da pasta config e mudar o valor das variaveis do banco de dados local:
-   
-```
-    cd config/
-
-    host: 'seu valor',
-	port: 000,
-	user: 'root',
-	password: '',
-	database: 'agenda-petshop',
-```
-
-##### 3. Na pasta raiz deste projeto basta rodar o comando abaixo:
-
-```
-    cd package/1-rest-nodejs
-    yarn start
-```
-
-##### 4. 🔥 Acessar as urls e utilizar a aplicação 🔥
-=======
 ### SUMÁRIO
 
 **1.** [Rest-NodeJs](/package/1-rest-nodejs/README.md)
@@ -69,5 +38,4 @@
 
 **3.** [Node-JWT](/package/3-node-jwt/README.md) 
 
-**4.** [Typescript]()
->>>>>>> dev
+**4.** [Typescript](https://cursos.alura.com.br/formacao-typescript)
