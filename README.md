@@ -32,10 +32,10 @@
 
 ### SUMÁRIO
 
-**1.** [Rest-NodeJs](/package/1-rest-nodejs/README.md)
+**1.** [NodeJs-streaming-repositorios](/package/1-rest-nodejs/)
 
-**2.** [Api-escalavel](/package/2-api-escalavel/README.md)
+**2.** [Api-escalavel](/package/2-api-escalavel/)
 
-**3.** [Node-JWT](/package/3-node-jwt/README.md) 
+**3.** [Node-jwt-autenticacao-tokens](/package/3-node-jwt/) 
 
-**4.** [Typescript](https://cursos.alura.com.br/formacao-typescript)
+**4.** [Formacao-Typescript](https://cursos.alura.com.br/formacao-typescript)
