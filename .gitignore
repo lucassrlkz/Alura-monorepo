@@ -1,1 +1,8 @@
 node_modules
+/package/1-rest-nodejs/infraestrutura/config/*.json
+/package/2-api-escalavel/node_modules
+/package/2-api-escalavel/config/*.json
+/package/3-node-jwt/node_modules
+/package/3-node-jwt/db.sqlite
+/package/4-typescript/node_modules
+/package/4-typescript/servidor-api/node_modules
