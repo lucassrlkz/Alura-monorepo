@@ -1,0 +1,23 @@
+{
+<<<<<<< HEAD:package/2-api-rest-escalavel/package.json
+  "name": "2-api-rest-escalavel",
+=======
+  "name": "@alura-monorepo/2-api-escalavel",
+>>>>>>> dev:package/2-api-escalavel/package.json
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon api/index.js",
+    "database":"node api/database/criarTabelas.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "config": "^3.3.6",
+    "express": "^4.17.2",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.12.0-beta.3"
+  }
+}
