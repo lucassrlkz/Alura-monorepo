@@ -18,8 +18,8 @@ Neste projeto foi construído uma aplicação API em *REST* usando *NodeJs*
 ```json
   {
    "mysql":{
-       "host": "host",
-	    "port": "port",
+        "host": "host",
+        "port": "port",
         "username": "username",
         "password": "password",
         "database": "database"
