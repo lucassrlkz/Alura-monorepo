@@ -32,7 +32,6 @@
 
 ### SUMÁRIO
 
-<<<<<<< HEAD
 **1.** [NodeJs-streaming-repositorios](/package/1-rest-nodejs/)
 
 **2.** [Api-escalavel](/package/2-api-escalavel/)
@@ -40,12 +39,3 @@
 **3.** [Node-jwt-autenticacao-tokens](/package/3-node-jwt/) 
 
 **4.** [Formacao-Typescript](/package/4-typescript/)
-=======
-**1.** [Nodejs-streaming-dados](/package/1-rest-nodejs)
-
-**2.** [Api-escalavel](/package/2-api-escalavel)
-
-**3.** [Node-jwt-autenticacao-tokens](/package/3-node-jwt) 
-
-**4.** [Formacao-Typescript](/package/4-typescript/)
->>>>>>> origin/dev
