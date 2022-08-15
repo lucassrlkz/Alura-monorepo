@@ -5,9 +5,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { ExecutionTime } from "../decorators/executionTime.js";
+import { Inspect } from "../decorators/inspect.js";
 export class View {
     constructor(seletor, escapar) {
-        this.escapar = false;
         const elemento = document.querySelector(seletor);
         if (elemento) {
             this.elemento = elemento;
@@ -15,18 +15,14 @@ export class View {
         else {
             throw Error(`O seletor ${seletor} não existe no DOM`);
         }
-        if (escapar)
-            this.escapar = escapar;
     }
     update(model) {
         let template = this.template(model);
         this.elemento.innerHTML = template;
-        if (this.escapar) {
-            template = template.replace(/<script>[\s\S]*?<\/script>/, '');
-        }
     }
 }
 __decorate([
+    Inspect,
     ExecutionTime()
 ], View.prototype, "update", null);
 ;

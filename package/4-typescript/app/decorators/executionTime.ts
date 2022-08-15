@@ -18,7 +18,7 @@ export function ExecutionTime(seconds: Boolean = false) {
             const finalTime = performance.now();
             console.log(`${propertyKey}, execution time: ${(initialTime - finalTime) / divide} seconds`);
 
-            result;
+            return result;
         };
         return descriptor;
     };

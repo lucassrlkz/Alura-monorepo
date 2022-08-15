@@ -12,7 +12,7 @@ export function ExecutionTime(seconds = false) {
             const result = originalMethod.apply(this, args);
             const finalTime = performance.now();
             console.log(`${propertyKey}, execution time: ${(initialTime - finalTime) / divide} seconds`);
-            result;
+            return result;
         };
         return descriptor;
     };
