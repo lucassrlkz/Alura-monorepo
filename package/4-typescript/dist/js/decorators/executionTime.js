@@ -1,4 +1,4 @@
-export function TempoDeExecucao(seconds = false) {
+export function ExecutionTime(seconds = false) {
     return function (target, propertyKey, descriptor) {
         const originalMethod = descriptor.value;
         descriptor.value = function (...args) {

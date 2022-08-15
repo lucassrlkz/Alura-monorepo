@@ -1,4 +1,4 @@
-import { TempoDeExecucao } from "../decorators/tempo-de-execucao.js"
+import { ExecutionTime } from "../decorators/executionTime.js"
 
 export abstract class View<T> {
     protected elemento: HTMLElement
@@ -16,7 +16,7 @@ export abstract class View<T> {
         if (escapar) this.escapar = escapar
     }
 
-    @TempoDeExecucao()
+    @ExecutionTime()
     public update(model: T): void {
         let template = this.template(model)
         this.elemento.innerHTML = template

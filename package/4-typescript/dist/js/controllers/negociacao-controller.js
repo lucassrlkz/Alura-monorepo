@@ -9,7 +9,7 @@ import Negociacoes from '../models/negociacoes.js';
 import NegociacoesView from '../views/negociacoes-view.js';
 import MensagemView from '../views/mensagem-view.js';
 import { DiasDaSemana } from '../enums/dias-da-semana.js';
-import { TempoDeExecucao } from '../decorators/tempo-de-execucao.js';
+import { ExecutionTime } from '../decorators/executionTime.js';
 export class NegociacaoController {
     constructor() {
         this.negociacoes = new Negociacoes();
@@ -47,5 +47,5 @@ export class NegociacaoController {
     }
 }
 __decorate([
-    TempoDeExecucao()
+    ExecutionTime()
 ], NegociacaoController.prototype, "adiciona", null);
