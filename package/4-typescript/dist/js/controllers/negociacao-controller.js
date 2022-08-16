@@ -4,6 +4,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+import { NegociacoesService } from './../services/negociacoes-service';
 import { Negociacao } from '../models/negociacao.js';
 import Negociacoes from '../models/negociacoes.js';
 import NegociacoesView from '../views/negociacoes-view.js';
@@ -17,6 +18,7 @@ export class NegociacaoController {
         this.negociacoes = new Negociacoes();
         this.negociacoesView = new NegociacoesView('#negociacoesView');
         this.mensagemView = new MensagemView('#mensagemView');
+        this.NegociacoesService = new NegociacoesService();
         this.negociacoesView.update(this.negociacoes);
     }
     adiciona() {
@@ -29,6 +31,15 @@ export class NegociacaoController {
         console.log(this.negociacoes.lista());
         this.atualizaView();
         this.limparFormulario();
+    }
+    importarData() {
+        this.NegociacoesService.ObterNegociacoesDia()
+            .then(todayNegociation => {
+            for (let negociation of todayNegociation) {
+                this.negociacoes.adiciona(negociation);
+            }
+            this.negociacoesView.update(this.negociacoes);
+        });
     }
     limparFormulario() {
         this.inputData.value = '';

@@ -1,6 +1,3 @@
-import { ExecutionTime } from "../decorators/execution-time.js"
-import { Inspect } from "../decorators/inspect.js"
-
 export abstract class View<T> {
     protected elemento: HTMLElement
 
