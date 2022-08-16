@@ -1,4 +1,4 @@
-import { ExecutionTime } from "../decorators/executionTime.js"
+import { ExecutionTime } from "../decorators/execution-time.js"
 import { Inspect } from "../decorators/inspect.js"
 
 export abstract class View<T> {
@@ -13,8 +13,7 @@ export abstract class View<T> {
             throw Error(`O seletor ${seletor} não existe no DOM`)
         }
     }
-    @Inspect
-    @ExecutionTime()
+
     public update(model: T): void {
         let template = this.template(model)
         this.elemento.innerHTML = template
