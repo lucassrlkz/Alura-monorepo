@@ -1,4 +1,4 @@
-import { Negociacao } from '../models/negociacao';
+import { Negociacao } from '../models/negociacao.js';
 export class NegociacoesService {
     ObterNegociacoesDia() {
         const urlApi = 'http://localhost:8080/dados';
@@ -11,3 +11,4 @@ export class NegociacoesService {
         });
     }
 }
+//# sourceMappingURL=negociacoes-service.js.map

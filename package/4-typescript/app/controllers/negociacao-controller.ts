@@ -1,4 +1,4 @@
-import { NegociacoesService } from './../services/negociacoes-service';
+import { NegociacoesService } from './../services/negociacoes-service.js';
 import { Negociacao } from '../models/negociacao.js';
 import Negociacoes from '../models/negociacoes.js';
 import NegociacoesView from '../views/negociacoes-view.js';
@@ -7,7 +7,8 @@ import { DiasDaSemana } from '../enums/dias-da-semana.js';
 import { ExecutionTime } from '../decorators/execution-time.js';
 import { Inspect } from '../decorators/inspect.js';
 import { domInjector } from '../decorators/dom-injector.js';
-import { NegociacoesDia } from '../interfaces/negociacao-dia.js';
+import { imprimir } from '../utils/imprimir.js';
+
 
 export class NegociacaoController {
     @domInjector('#data')
@@ -43,13 +44,21 @@ export class NegociacaoController {
         }
 
         this.negociacoes.adiciona(negociacao)
-        console.log(this.negociacoes.lista())
+        imprimir(negociacao, this.negociacoes)
+
         this.atualizaView();
         this.limparFormulario()
     }
 
-    public importarData(): void {
+    public importarDados(): void {
         this.NegociacoesService.ObterNegociacoesDia()
+            .then(todayNegociation => {
+                return todayNegociation.filter(todayNegociation => {
+                    return !this.negociacoes
+                        .lista()
+                        .some(negociacaoExistente => negociacaoExistente.equals(todayNegociation))
+                })
+            })
             .then(todayNegociation => {
                 for (let negociation of todayNegociation) {
                     this.negociacoes.adiciona(negociation)

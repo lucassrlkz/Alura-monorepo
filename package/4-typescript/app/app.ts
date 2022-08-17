@@ -15,7 +15,7 @@ if (form) {
 const btnImport = document.querySelector('#importar')
 if (btnImport) {
     btnImport.addEventListener('click', () => {
-        controller.importarData()
+        controller.importarDados()
     })
 } else {
 

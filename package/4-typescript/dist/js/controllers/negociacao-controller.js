@@ -4,7 +4,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-import { NegociacoesService } from './../services/negociacoes-service';
+import { NegociacoesService } from './../services/negociacoes-service.js';
 import { Negociacao } from '../models/negociacao.js';
 import Negociacoes from '../models/negociacoes.js';
 import NegociacoesView from '../views/negociacoes-view.js';
@@ -13,6 +13,7 @@ import { DiasDaSemana } from '../enums/dias-da-semana.js';
 import { ExecutionTime } from '../decorators/execution-time.js';
 import { Inspect } from '../decorators/inspect.js';
 import { domInjector } from '../decorators/dom-injector.js';
+import { imprimir } from '../utils/imprimir.js';
 export class NegociacaoController {
     constructor() {
         this.negociacoes = new Negociacoes();
@@ -28,12 +29,19 @@ export class NegociacaoController {
             return;
         }
         this.negociacoes.adiciona(negociacao);
-        console.log(this.negociacoes.lista());
+        imprimir(negociacao, this.negociacoes);
         this.atualizaView();
         this.limparFormulario();
     }
-    importarData() {
+    importarDados() {
         this.NegociacoesService.ObterNegociacoesDia()
+            .then(todayNegociation => {
+            return todayNegociation.filter(todayNegociation => {
+                return !this.negociacoes
+                    .lista()
+                    .some(negociacaoExistente => negociacaoExistente.equals(todayNegociation));
+            });
+        })
             .then(todayNegociation => {
             for (let negociation of todayNegociation) {
                 this.negociacoes.adiciona(negociation);
@@ -69,3 +77,4 @@ __decorate([
     Inspect,
     ExecutionTime()
 ], NegociacaoController.prototype, "adiciona", null);
+//# sourceMappingURL=negociacao-controller.js.map

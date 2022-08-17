@@ -13,9 +13,10 @@ else {
 const btnImport = document.querySelector('#importar');
 if (btnImport) {
     btnImport.addEventListener('click', () => {
-        controller.importarData();
+        controller.importarDados();
     });
 }
 else {
     throw Error('botão importa não foi encontrado');
 }
+//# sourceMappingURL=app.js.map
