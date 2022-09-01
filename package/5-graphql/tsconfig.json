@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "outDir": "dist/js",
+        "target":"ES6",
+        "noEmitOnError": true,
+        "noImplicitAny": true,
+        "removeComments": true,
+        "strictNullChecks": true,
+        "experimentalDecorators": true,
+        "sourceMap": true,
+        
+    },
+    "include": ["api/"]
+}

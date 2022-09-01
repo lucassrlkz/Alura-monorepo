@@ -2,9 +2,9 @@
   "name": "@alura-monorepo/5-graphql",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "start": "nodemon ./api/index.js",
+    "start": "nodemon -e ts,json,graphql ./api/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "json-server": "npx json-server --watch api/data/dados.json"
   },
@@ -21,9 +21,12 @@
   "homepage": "https://github.com/alura-cursos/1922-graphql#readme",
   "dependencies": {
     "apollo-server": "^3.10.1",
-    "apollo-server-types": "^3.6.2",
     "graphql": "^16.5.0",
-    "json-server": "^0.4.2",
+    "json-server": "^0.17.0",
     "nodemon": "^2.0.4"
+  },
+  "devDependencies": {
+    "@types/graphql": "^14.5.0",
+    "apollo-server-types": "^3.6.2"
   }
 }

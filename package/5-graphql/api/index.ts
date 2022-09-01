@@ -1,22 +1,12 @@
-import { ApolloServer, gql } from "apollo-server";
+const { ApolloServer } = require("apollo-server");
+const userSchema = require("./user/schema/user.graphql");
+const userResolver = require("./user/resolvers/userResolvers");
 
-const users = [
-  {
-    nome: "Lucas",
-    ativo: true,
-  },
-  {
-    nome: "Luara",
-    ativo: false,
-  },
-];
-
-const typeDefs = gql`
-  type User {
-    nome: String!
-    ativo: Boolean
-    email: String
-  }
-`;
+const typeDefs = [userSchema];
+const resolvers = [userResolver];
 
 const server = new ApolloServer({ typeDefs, resolvers });
+
+server.listen({ port: 4001 }).then(({ url }: any) => {
+  console.log(`Servidor rodando na porta ${url}`);
+});
