@@ -1,5 +1,6 @@
 interface Irole {
   id: number;
+  type: string;
 }
 
 export interface Iuser {
