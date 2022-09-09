@@ -1,19 +1,12 @@
-const users = [
-  {
-    nome: "Lucas",
-    ativo: true,
-  },
-  {
-    nome: "Luara",
-    ativo: false,
-  },
-];
-
 const userResolvers = {
   Query: {
-    users: () => users,
-    user: () => users[0],
+    users: (_root: any, _args: any, { dataSources }: any) => {
+      return dataSources.usersAPI.getUsers();
+    },
+    user: (_root: any, { id }: any, { dataSources }: any) => {
+      return dataSources.usersAPI.getUserById(id);
+    },
   },
 };
 
-module.exports = userResolvers;
+export default userResolvers;
