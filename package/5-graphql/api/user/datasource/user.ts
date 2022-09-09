@@ -7,7 +7,7 @@ class UsersApi extends RESTDataSource {
     this.baseURL = "http://localhost:3000";
   }
 
-  async getUsers() {
+  async getUsers(): Promise<Iuser[]> {
     const users = await this.get("/users");
     return users.map(async (user: Iuser) => ({
       id: user.id,
@@ -18,10 +18,34 @@ class UsersApi extends RESTDataSource {
     }));
   }
 
-  async getUserById(id: any) {
+  async getUserById(id: number): Promise<Iuser> {
     const user = await this.get(`/users/${id}`);
     user.role = await this.get(`/roles/${user.id}`);
     return user;
+  }
+
+  async adicionaUser(user: Iuser): Promise<Iuser> {
+    const users = await this.get("/users");
+    user.id = users.length + 1;
+    const role = await this.get(`roles?type=${user.role}`);
+
+    await this.post("users", { ...user, role: role[0].id });
+
+    return { ...user, role: role[0] };
+  }
+
+  async atualizaUser(newData: Iuser): Promise<Iuser> {
+    const role = await this.get(`roles?type=${newData.role}`);
+    await this.put(`users/${newData.id}`, { ...newData, role: role[0].id });
+    return {
+      ...newData,
+      role: role[0],
+    };
+  }
+
+  async deletaUser(id: number): Promise<any> {
+    await this.delete(`users/${id}`);
+    return id;
   }
 }
 
