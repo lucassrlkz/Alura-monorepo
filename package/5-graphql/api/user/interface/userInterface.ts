@@ -9,6 +9,12 @@ export interface Iuser {
   ativo: boolean;
   email: string;
   role: Irole;
+  createdAt: string;
+}
+
+export interface InewData {
+  id: number;
+  user: Iuser;
 }
 
 export interface IusersApi {

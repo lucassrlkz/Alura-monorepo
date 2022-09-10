@@ -1,10 +1,14 @@
-import { Iuser } from "../interface/userInterface";
+import { Iuser, InewData } from "../interface/userInterface";
 const { RESTDataSource } = require("apollo-datasource-rest");
 
 class UsersApi extends RESTDataSource {
   constructor() {
     super();
     this.baseURL = "http://localhost:3000";
+    this.resposta = {
+      code: 200,
+      mensagem: "operação efetuada com sucesso",
+    };
   }
 
   async getUsers(): Promise<Iuser[]> {
@@ -34,18 +38,21 @@ class UsersApi extends RESTDataSource {
     return { ...user, role: role[0] };
   }
 
-  async atualizaUser(newData: Iuser): Promise<Iuser> {
-    const role = await this.get(`roles?type=${newData.role}`);
-    await this.put(`users/${newData.id}`, { ...newData, role: role[0].id });
+  async atualizaUser(newData: InewData): Promise<Iuser> {
+    const role = await this.get(`roles?type=${newData.user.role}`);
+    await this.put(`users/${newData.id}`, {
+      ...newData.user,
+      role: role[0].id,
+    });
     return {
-      ...newData,
-      role: role[0],
+      ...this.resposta,
+      user: { ...newData.user, role: role[0] },
     };
   }
 
   async deletaUser(id: number): Promise<any> {
     await this.delete(`users/${id}`);
-    return id;
+    return this.resposta;
   }
 }
 
