@@ -13,16 +13,19 @@
   "scripts": {
     "start1": "yarn workspace @alura-monorepo/1-rest-nodejs start",
     "start2": "yarn workspace @alura-monorepo/2-api-escalavel start",
-    "start3": "yarn workspace @alura-monorepo/blog-do-codigo start",
-    "start4": "yarn workspace @alura-monorepo/alurabank start",
-    "start5": "yarn workspace @alura-monorepo/5-graphql start"
+    "start3": "yarn workspace @alura-monorepo/3-blog-do-codigo start",
+    "start4": "yarn workspace @alura-monorepo/4-alurabank start",
+    "start5": "yarn workspace @alura-monorepo/5-graphql start",
+    "start6": "yarn workspace @alura-monorepo/6-styled-components start"
+
   },
   "dependencies": {
     "@alura-monorepo/1-rest-nodejs": "1.0.0",
     "@alura-monorepo/2-api-escalavel": "1.0.0",
+    "@alura-monorepo/3-blog-do-codigo": "1.0.0",
+    "@alura-monorepo/4-alurabank": "1.0.0",
     "@alura-monorepo/5-graphql": "1.0.0",
-    "@alura-monorepo/alurabank": "1.0.0",
-    "@alura-monorepo/blog-do-codigo": "1.0.0",
+    "@alura-monorepo/6-styled-components": "1.0.0",
     "cors": "^2.8.5",
     "jsontoxml": "^1.0.1"
   }

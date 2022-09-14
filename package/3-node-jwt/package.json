@@ -1,5 +1,5 @@
 {
-  "name": "@alura-monorepo/blog-do-codigo",
+  "name": "@alura-monorepo/3-blog-do-codigo",
   "version": "1.0.0",
   "description": "Um blog simples em Node.js",
   "main": "server.js",
